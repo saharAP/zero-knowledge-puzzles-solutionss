@@ -7,11 +7,19 @@ pragma circom 2.1.4;
 // You are free to use any operator you may like . 
 
 // HINT:NEGATION
+include "../node_modules/circomlib/circuits/comparators.circom";
 
 template NotEqual() {
 
-    // Your code here.
-   
+    signal input a[2];
+	signal output c;
+	
+	
+	component isZ = IsZero();
+	var temp= a[0]-a[1];
+	temp ==> isZ.in;
+
+	c <== 1-isZ.out;
 }
 
 component main = NotEqual();
