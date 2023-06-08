@@ -58,5 +58,29 @@ describe("Sudoku Tester ", function () {
     const expectedOutput3 = 0;
     assert(Fr.eq(Fr.e(witness[0]), Fr.e(1)));
     assert(Fr.eq(Fr.e(witness[1]), Fr.e(expectedOutput3)));
+	
+	 witness = await circuit.calculateWitness(
+      {
+        question: [ "4","0","0","0","0","1","0","0","0","0","1","0","1","0","0","0", ],
+        solution: [ "4","4","1","1","1","1","4","4","4","4","1","1","1","1","4","4", ],
+      },
+      true,
+    );
+	   const expectedOutput4 = 0;
+    assert(Fr.eq(Fr.e(witness[0]), Fr.e(1)));
+    assert(Fr.eq(Fr.e(witness[1]), Fr.e(expectedOutput4)));
+
+ witness = await circuit.calculateWitness(
+      {
+        question: [ "1","0","0","0","0","4","0","0","0","0","4","0","4","0","0","0", ],
+        solution: [ "1","3","3","3","2","4","1","3","3","1","4","2","4","2","2","2", ],
+      },
+      true,
+    );
+	   const expectedOutput5 = 0;
+    assert(Fr.eq(Fr.e(witness[0]), Fr.e(1)));
+    assert(Fr.eq(Fr.e(witness[1]), Fr.e(expectedOutput5)));
+   
+	
   });
 });
