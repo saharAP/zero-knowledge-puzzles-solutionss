@@ -9,8 +9,8 @@ template Equality() {
    signal input a[3];
    signal output c;
   
-   var d= a[0]-a[1];
-   var e= a[1]-a[2];
+   signal d<== a[0]-a[1];
+   signal e<== a[1]-a[2];
    
    component isZ_d = IsZero();
    component isZ_e = IsZero();
